@@ -5,7 +5,10 @@
         "noImplicitAny": true,
         "module": "amd",
         "target": "es5",
-        "jsx": "react"
+        "jsx": "react",
+        "moduleResolution": "node",
+        "lib": ["es2015", "dom"],
+        "allowSyntheticDefaultImports": true
     },
     "include": [
         "./src/**/*"

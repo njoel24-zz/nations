@@ -3,22 +3,28 @@ import { connect } from "react-redux";
 
 // 'HelloProps' describes the shape of props.
 // State is never set so we use the '{}' type.
-export class App extends React.Component<{}> {
+
+
+export class App extends React.Component {
+  private  allCountries: any;
+
     render() {
-        return <h1>Hello from Cris!</h1>;
+        return <div className="container"> 
+          <div>
+            <select></select>
+          </div>
+          <div>
+        	<select>
+
+			</select>
+          </div>
+        </div>;
     }
 }
 
 const mapStateToProps = function(store: any) {
-    return {
-      isStart: store.isStart
-    };
+  this.allCountries = store.allCountries 
+    return {};
   }
-  const mapDispatchToProps = function(dispatch: any, ownProps: any) {
-    return {
-      initMatch: () => {
-        // dispatch(initMatch());
-      }
-    }
-  }
-  export default connect(mapStateToProps, mapDispatchToProps)(App);
+  
+  export default connect(mapStateToProps)(App);
