@@ -10,25 +10,13 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"],
-        modules: [
-			"node_modules"
-		]
+        extensions: [".ts", ".tsx", ".js", ".json"]
         },
         
     module: {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader",
-            options: {
-                logInfoToStdOut: true,
-                instance: require("typescript"),
-                compilerOptions: require("./tsconfig").compilerOptions,
-                silent: true,
-                exclude: require("./tsconfig").exclude,
-                include: require("./tsconfig").include
-            }  },
-
+            { test: /\.tsx?$/, loader: 'babel-loader?presets[]=es2015!ts-loader' },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]

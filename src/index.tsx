@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { App } from "./components/App";
+import { MyApp } from "./components/App";
 
 // redux
 import { createStore, applyMiddleware  } from "redux";
@@ -13,16 +13,17 @@ import { Provider, connect } from "react-redux";
 import appReducer from './reducers/reducer';
 import { getAllCountries } from "./actions/actions";
 
-
-
 const store = createStore(appReducer, applyMiddleware(thunk));
 
-store.dispatch(getAllCountries())
+store.dispatch(getAllCountries());
 
-ReactDOM.render(
+const Root: React.SFC<{}> = () => (
 	<Provider store={store}>
-  			<App />
-  	</Provider>,
-  document.getElementById('root')
-)
+	  <MyApp />
+	</Provider>
+  )
 
+  window.addEventListener('DOMContentLoaded', () => {
+	const rootEl = document.getElementById('root')
+	ReactDOM.render(<Root />, rootEl)
+  })
