@@ -2,14 +2,33 @@
     width: 1280px;
     height: 1024px;
     background: url("world.jpg");
+    display: grid;
+    grid-gap: 2px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto;
 }
 
-.container div {
-    display: inline-block;
-    margin: 167px;
-    width: 300px;
+.container .firstSelect {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
 }
 
-.container span {
-    display: table;
+.container select {
+    width: 50%;
+}
+
+.container .secondSelect {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+}
+
+.container .details {
+    display: grid;
+    color: black;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto;
+    background-color: white;
+    width: 50%;
 }
